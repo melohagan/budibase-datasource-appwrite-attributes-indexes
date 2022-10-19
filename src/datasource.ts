@@ -61,15 +61,24 @@ class CustomIntegration implements IntegrationBase {
     return await this.databases.createIndex(query.databaseId, query.collectionId, query.key, query.extra.type, attributes)
   }
 
-  async read(query: { databaseId: string; membershipId: string; extra: { [key:string]: string; } }) {
-    
+  async read(query: { databaseId: string; collectionId: string; key: string; extra: { [key:string]: string; } }) {
+    if (query.extra.type === "Index") {
+      if (query.key) {
+        return await this.databases.getIndex(query.databaseId, query.collectionId, query.key)
+      }
+      return await this.databases.listIndexes(query.databaseId, query.collectionId)
+    }
+    if (query.key) {
+      return await this.databases.getAttribute(query.databaseId, query.collectionId, query.key)
+    }
+    return await this.databases.listAttributes(query.databaseId, query.collectionId)
   }
 
   async update(query: { databaseId: string; collectionId: string; }) {
     
   }
 
-  async delete(query: { databaseId: string; membershipId: string; extra: { [key:string]: string; } }) {
+  async delete(query: { databaseId: string; collectionId: string; extra: { [key:string]: string; } }) {
     
   }
 }

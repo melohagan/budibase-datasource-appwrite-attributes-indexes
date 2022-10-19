@@ -78,7 +78,11 @@
             "type": "string",
             "required": true
           },
-          "membershipId": {
+          "collectionId": {
+            "type": "string",
+            "required": true
+          },
+          "key": {
             "type": "string",
             "required": false
           }
@@ -104,9 +108,9 @@
             "type": "string",
             "required": true
           },
-          "membershipId": {
+          "collectionId": {
             "type": "string",
-            "required": false
+            "required": true
           }
         }
       }
@@ -132,12 +136,12 @@
             "key", "fulltext", "unique", "spatial", "array"
           ],
           "read": [
-            "Team",
-            "Memberships"
+            "Attribute",
+            "Index"
           ],
           "delete": [
-            "Team",
-            "Memberships"
+            "Attribute",
+            "Index"
           ]
         }
       }
