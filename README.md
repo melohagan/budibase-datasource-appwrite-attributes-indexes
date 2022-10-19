@@ -1,8 +1,8 @@
-# Appwrite-users
-Official docs here: https://appwrite.io/docs/server/users?sdk=nodejs-default
+# Appwrite Attributes & Indexes
+Official docs here: https://appwrite.io/docs/server/databases?sdk=nodejs-default
 
 # Description
-Manage users in Appwrite
+Perform CRUD operations on Appwrite attributes and indexes
 
 Find out more about [Budibase](https://github.com/Budibase/budibase).
 
