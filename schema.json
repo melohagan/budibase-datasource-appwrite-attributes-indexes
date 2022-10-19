@@ -1,0 +1,122 @@
+{
+  "type": "datasource",
+  "metadata": {},
+  "schema": {
+    "docs": "https://appwrite.io/docs/server/databases?sdk=nodejs-default",
+    "friendlyName": "Appwrite attributes + indexes",
+    "type": "API",
+    "description": "Perform CRUD operations on Appwrite attributes and indexes",
+    "datasource": {
+      "endpoint": {
+        "type": "string",
+        "required": true
+      },
+      "projectId": {
+        "type": "string",
+        "required": true
+      },
+      "apiKey": {
+        "type": "password",
+        "required": true
+      }
+    },
+    "query": {
+      "create": {
+        "type": "fields",
+        "fields": {
+          "databaseId": {
+            "type": "string",
+            "required": true
+          },
+          "collectionId": {
+            "type": "string",
+            "required": true
+          },
+          "key": {
+            "type": "string",
+            "required": true
+          },
+          "required": {
+            "type": "string",
+            "required": true
+          },
+          "size": {
+            "type": "number",
+            "required": false
+          },
+          "elements": {
+            "type": "json",
+            "required": false
+          }
+        }
+      },
+      "read": {
+        "type": "fields",
+        "fields": {
+          "databaseId": {
+            "type": "string",
+            "required": true
+          },
+          "membershipId": {
+            "type": "string",
+            "required": false
+          }
+        }
+      },
+      "update": {
+        "type": "fields",
+        "fields": {
+          "databaseId": {
+            "type": "string",
+            "required": true
+          },
+          "name": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "delete": {
+        "type": "fields",
+        "fields": {
+          "databaseId": {
+            "type": "string",
+            "required": true
+          },
+          "membershipId": {
+            "type": "string",
+            "required": false
+          }
+        }
+      }
+    },
+    "extra": {
+      "type": {
+        "displayName": "Type",
+        "type": "list",
+        "required": false,
+        "data": {
+          "create": [
+            "String",
+            "Email",
+            "Enum",
+            "IP Address",
+            "URL",
+            "Integer",
+            "Float",
+            "Boolean",
+            "DateTime"
+          ],
+          "read": [
+            "Team",
+            "Memberships"
+          ],
+          "delete": [
+            "Team",
+            "Memberships"
+          ]
+        }
+      }
+    }
+  }
+}
