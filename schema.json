@@ -50,6 +50,27 @@
           }
         }
       },
+      "createIndex": {
+        "type": "fields",
+        "fields": {
+          "databaseId": {
+            "type": "string",
+            "required": true
+          },
+          "collectionId": {
+            "type": "string",
+            "required": true
+          },
+          "key": {
+            "type": "string",
+            "required": true
+          },
+          "attributes": {
+            "type": "json",
+            "required": true
+          }
+        }
+      },
       "read": {
         "type": "fields",
         "fields": {
@@ -106,6 +127,9 @@
             "Float",
             "Boolean",
             "DateTime"
+          ],
+          "createIndex": [
+            "key", "fulltext", "unique", "spatial", "array"
           ],
           "read": [
             "Team",

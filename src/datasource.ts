@@ -51,6 +51,16 @@ class CustomIntegration implements IntegrationBase {
     throw new Error("You must select an attribute type!")
   }
 
+  async createIndex(query: { 
+    databaseId: string; collectionId: string; key: string;
+    attributes: string; extra: { [key:string]: string; } }) {
+    let attributes: string[] = []
+    if (query.attributes) {
+      attributes = JSON.parse(query.attributes)
+    }
+    return await this.databases.createIndex(query.databaseId, query.collectionId, query.key, query.extra.type, attributes)
+  }
+
   async read(query: { databaseId: string; membershipId: string; extra: { [key:string]: string; } }) {
     
   }
